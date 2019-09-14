@@ -1,0 +1,84 @@
+[core]
+    mergeoptions = --no-ff
+    pager = diff-so-fancy | less -$LESS
+    editor = code --wait
+    autocrlf = input
+[interactive]
+    singleKey = true
+
+[help]
+    autocorrect = 1
+
+[alias]
+    # Shortcuts
+    st = status -sb
+    co = checkout
+    cob = checkout -b
+    cp = cherry-pick
+    ci = commit
+    up = pull
+    di = diff
+    br = branch
+
+    tags = tag -l
+    branches = branch -a
+    remotes = remote -v
+
+    save = !git add --all && git commit --no-verify --message "SAVEPOINT"
+    wip = !git add --update && git commit --no-verify --message "WIP"
+    undo = reset HEAD~1 --soft
+
+    # Pretty log for current branch
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+
+    # Pretty log for all branches
+    hist = log --pretty=format:'%C(yellow)%h%C(reset) %ad | %C(75)%s%C(reset) %C(yellow)%d%C(reset) [%an]' --graph --date=short --branches --all
+
+    # Get hash of latest commit
+    hash = show -s --format=%H
+
+    # Remove branches that have already been merged with master
+    dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+    size = "!git gc && git count-objects -vH"
+
+    patch = !git --no-pager diff --binary --no-color
+
+[color]
+    ui = auto
+    interactive = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow
+    frag = magenta
+    old = red
+    new = green
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[push]
+    default = simple
+[rebase]
+    autosquash = true
+    autostash = true
+[diff]
+    colorMoved = default
+[merge]
+    conflictstyle = diff3
+
+[filter "lfs"]
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge --skip %f
+    process = git-lfs filter-process --skip
+    required = true
+[lfs "https://github.yandex-team.ru/"]
+  locksverify = false
+
+[stash]
+    showPatch = true
+#[gpg]
+#    program = gpg2

@@ -1,0 +1,35 @@
+{
+    // Editor
+	"editor.fontSize": 16,
+    "editor.rulers": [80, 120],
+    "editor.minimap.enabled": false,
+    // Files
+    "files.trimTrailingWhitespace": true,
+	"files.insertFinalNewline": true,
+	"files.hotExit": "off",
+    "files.useExperimentalFileWatcher": true,
+    // Search
+    "search.useIgnoreFiles": true,
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/bower_components": true,
+		"**/out": true
+	},
+	// TypeScript
+	"typescript.disableAutomaticTypeAcquisition": true,
+	"typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+	// JavaScript
+    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    // Terminal
+    "terminal.external.osxExec": "iTerm.app",
+    // Git
+	"git.enabled": true,
+	"window.zoomLevel": 0,
+    "diffEditor.renderSideBySide": true,
+    "workbench.editor.showTabs": false,
+    "cSpell.enabled": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "kite.showWelcomeNotificationOnStartup": false,
+    "javascript.updateImportsOnFileMove.enabled": "always"
+}

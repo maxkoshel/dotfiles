@@ -1,0 +1,22 @@
+antigen use oh-my-zsh
+
+antigen bundles <<EOBUNDLES
+    gitfast
+    github
+    colored-man-pages
+    fasd
+    wookayin/fzf-fasd
+
+    zsh-users/zsh-completions
+    zsh-users/zsh-syntax-highlighting
+    zsh-users/zsh-autosuggestions
+    tysonwolker/iterm-tab-colors
+    changyuheng/zsh-interactive-cd
+    lukechilds/zsh-nvm
+    MichaelAquilina/zsh-you-should-use
+
+    mafredri/zsh-async
+    sindresorhus/pure
+EOBUNDLES
+
+antigen apply
