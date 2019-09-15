@@ -190,6 +190,10 @@ brew "ansible"
 # Amazon Web Services Cli
 brew "awscli"
 
+# Ruby Gem
+# Usage: brew gem install <package>
+brew "brew-gem"
+
 cask "alfred"
 cask "transmission"
 cask "vlc"
