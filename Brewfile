@@ -194,6 +194,9 @@ brew "awscli"
 # Usage: brew gem install <package>
 brew "brew-gem"
 
+# Package manager for Node
+brew "yarn"
+
 cask "alfred"
 cask "transmission"
 cask "vlc"
