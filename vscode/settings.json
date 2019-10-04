@@ -11,10 +11,11 @@
     // Search
     "search.useIgnoreFiles": true,
 	"search.exclude": {
-		"**/node_modules": true,
-		"**/bower_components": true,
-		"**/out": true
-	},
+        "**/.history": true,
+        "**/bower_components": true,
+        "**/node_modules": true,
+        "**/out": true
+    },
 	// TypeScript
 	"typescript.disableAutomaticTypeAcquisition": true,
 	"typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
@@ -31,5 +32,8 @@
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "kite.showWelcomeNotificationOnStartup": false,
-    "javascript.updateImportsOnFileMove.enabled": "always"
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "search.useGlobalIgnoreFiles": true,
+    "search.quickOpen.includeHistory": false,
+    "vsicons.dontShowNewVersionMessage": true
 }
