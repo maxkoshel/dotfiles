@@ -43,6 +43,8 @@
 
     patch = !git --no-pager diff --binary --no-color
 
+    fixup = !sh -c 'REV=$(git rev-parse $1) && git commit --fixup $@ && git rebase -i --autosquash $REV^' -
+
 [color]
     ui = auto
     interactive = auto
