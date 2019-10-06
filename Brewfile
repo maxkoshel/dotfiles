@@ -202,6 +202,7 @@ cask "transmission"
 cask "vlc"
 cask "1password"
 cask "brave-browser"
+cask "deepl"
 
 cask "telegram-desktop"
 cask "whatsapp"
