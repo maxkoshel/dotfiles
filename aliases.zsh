@@ -93,3 +93,6 @@ alias nit='npm install && npm test'
 
 # kubernetes
 alias k=kubectl
+
+# minikube
+alias mk='minikube start --extra-config=apiserver.authorization-mode=RBAC --extra-config=apiserver.enable-swagger-ui=true'
