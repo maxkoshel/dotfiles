@@ -11,6 +11,7 @@ ipedrazas.kubernetes-snippets
 k--kato.intellij-idea-keybindings
 kiteco.kite
 kumar-harsh.graphql-for-vscode
+mauve.terraform
 mikestead.dotenv
 mohsen1.prettify-json
 monokai.theme-monokai-pro-vscode
