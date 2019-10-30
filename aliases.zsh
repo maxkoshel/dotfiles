@@ -92,7 +92,9 @@ alias m='d -e mc'
 alias nit='npm install && npm test'
 
 # kubernetes
-alias k=kubectl
+alias k='kubectl'
+# get all namespaced k8s resources
+alias kga='kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found'
 
 # minikube
 alias mk='minikube start --extra-config=apiserver.authorization-mode=RBAC --extra-config=apiserver.enable-swagger-ui=true'
