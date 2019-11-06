@@ -203,6 +203,7 @@ cask "vlc"
 cask "1password"
 cask "brave-browser"
 cask "deepl"
+cask "libreoffice"
 
 cask "telegram-desktop"
 cask "whatsapp"
