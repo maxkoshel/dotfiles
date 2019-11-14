@@ -97,4 +97,4 @@ alias k='kubectl'
 alias kga='kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found'
 
 # minikube
-alias mk='minikube start --extra-config=apiserver.authorization-mode=RBAC --extra-config=apiserver.enable-swagger-ui=true'
+alias mk='minikube start --extra-config=apiserver.authorization-mode=RBAC --extra-config=apiserver.enable-swagger-ui=true --feature-gates="TTLAfterFinished=true"'
