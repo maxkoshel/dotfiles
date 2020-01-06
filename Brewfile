@@ -4,6 +4,7 @@ tap "homebrew/core"
 tap "beeftornado/rmtree"
 tap "saulpw/vd"
 tap "caskroom/fonts"
+tap "prisma/prisma"
 
 # Clone of cat(1) with syntax highlighting and Git integration
 # https://github.com/sharkdp/bat
@@ -196,6 +197,9 @@ brew "brew-gem"
 
 # Package manager for Node
 brew "yarn"
+
+# Database tools for modern application development
+brew "prisma"
 
 cask "alfred"
 cask "transmission"
