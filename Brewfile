@@ -178,8 +178,6 @@ brew "python"
 # https://github.com/ekalinin/pip-bash-completion
 brew "pip-completion"
 
-# brew "lastpass-cli", args: ["with-pinentry"]
-
 # Production-Grade Container Orchestration
 # https://kubernetes.io
 brew "kubernetes-cli"
