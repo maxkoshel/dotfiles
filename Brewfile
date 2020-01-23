@@ -199,6 +199,9 @@ brew "yarn"
 # Database tools for modern application development
 brew "prisma"
 
+# Security Scanner, Port Scanner, & Network Exploration Tool
+brew "nmap"
+
 cask "alfred"
 cask "transmission"
 cask "vlc"
