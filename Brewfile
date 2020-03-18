@@ -202,6 +202,8 @@ brew "prisma"
 # Security Scanner, Port Scanner, & Network Exploration Tool
 brew "nmap"
 
+brew "minikube"
+
 cask "alfred"
 cask "transmission"
 cask "vlc"
@@ -222,7 +224,6 @@ cask "visual-studio-code"
 cask "virtualbox"
 cask "vagrant"
 cask "kite"
-cask "minikubes"
 cask "google-cloud-sdk"
 
 ################
