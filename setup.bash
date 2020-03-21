@@ -69,6 +69,8 @@ cat >>${extra_file} <<EOL
 export GITHUB_HOST="${GH_HOST}"
 EOL
 
+source <(kubectl completion zsh)
+
 chsh -s /bin/zsh
 
 echo "Done. Reload your shell"

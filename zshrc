@@ -156,3 +156,4 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 export YVM_DIR=/Users/$(whoami)/.yvm
 [ -r $YVM_DIR/yvm.sh ] && source $YVM_DIR/yvm.sh
+if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
