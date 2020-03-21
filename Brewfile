@@ -202,6 +202,9 @@ brew "prisma"
 # Security Scanner, Port Scanner, & Network Exploration Tool
 brew "nmap"
 
+# Netcat on steroids
+brew "socat"
+
 brew "minikube"
 
 cask "alfred"
