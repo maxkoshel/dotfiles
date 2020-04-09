@@ -205,8 +205,6 @@ brew "nmap"
 # Netcat on steroids
 brew "socat"
 
-brew "minikube"
-
 cask "alfred"
 cask "transmission"
 cask "vlc"
