@@ -24,6 +24,7 @@ redhat.vscode-yaml
 sandcastle.vscode-open
 shd101wyy.markdown-preview-enhanced
 streetsidesoftware.code-spell-checker
+TabNine.tabnine-vscode
 VisualStudioExptTeam.vscodeintellicode
 vscode-icons-team.vscode-icons
 wayou.vscode-todo-highlight
