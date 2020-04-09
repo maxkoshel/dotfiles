@@ -228,6 +228,13 @@ cask "kite"
 cask "google-cloud-sdk"
 
 ################
+# Kubernetes
+################
+
+# Kubernetes CLI
+brew "kubectl"
+
+################
 # Optional stuff
 ################
 
