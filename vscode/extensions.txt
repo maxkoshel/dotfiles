@@ -4,6 +4,7 @@ donjayamanne.githistory
 eamodio.gitlens
 EditorConfig.EditorConfig
 esbenp.prettier-vscode
+formulahendry.auto-rename-tag
 GrapeCity.gc-excelviewer
 HookyQR.beautify
 huizhou.githd
