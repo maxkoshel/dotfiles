@@ -13,6 +13,7 @@
 	"search.exclude": {
         "**/.history": true,
         "**/bower_components": true,
+        "**/dist": true,
         "**/node_modules": true,
         "**/out": true
     },
@@ -35,5 +36,32 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "search.useGlobalIgnoreFiles": true,
     "search.quickOpen.includeHistory": false,
-    "vsicons.dontShowNewVersionMessage": true
+    "vsicons.dontShowNewVersionMessage": true,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "files.exclude": {
+        "**/*.chunk.*": true,
+        "**/*.lock": true,
+        "**/*.log": true,
+        "**/*.map": true,
+        "**/public": true
+    },
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "explorer.confirmDelete": false,
+    "gitlens.advanced.messages": {
+        "suppressFileNotUnderSourceControlWarning": true
+    },
+    "local-history.maxDisplay": 50,
+    "local-history.exclude": [
+        "**/.history/**",
+        "**/.vscode**",
+        "**/node_modules/**",
+        "**/typings/**",
+        "**/out/**",
+        "**/dist/**",
+        "**/.DS_Store/**",
+        "**/.git/**"
+    ],
+    "diffEditor.ignoreTrimWhitespace": false,
+    "prettier.singleQuote": true,
+    "prettier.configPath": ".prettierrc"
 }
