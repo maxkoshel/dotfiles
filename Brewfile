@@ -234,6 +234,9 @@ cask "google-cloud-sdk"
 # Kubernetes CLI
 brew "kubectl"
 
+# Local Kubernetes development
+brew "skaffold"
+
 ################
 # Optional stuff
 ################
