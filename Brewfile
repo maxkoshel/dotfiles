@@ -178,11 +178,6 @@ brew "python"
 # https://github.com/ekalinin/pip-bash-completion
 brew "pip-completion"
 
-# Production-Grade Container Orchestration
-# https://kubernetes.io
-brew "kubernetes-cli"
-brew "kubernetes-helm"
-
 # IT Automation
 brew "ansible"
 
@@ -234,8 +229,10 @@ cask "google-cloud-sdk"
 # Kubernetes
 ################
 
-# Kubernetes CLI
+# Production-Grade Container Orchestration
+# https://kubernetes.io
 brew "kubectl"
+brew "kubernetes-helm"
 
 # Local Kubernetes development
 brew "skaffold"
