@@ -61,7 +61,8 @@
         "**/.DS_Store/**",
         "**/.git/**"
     ],
-    "diffEditor.ignoreTrimWhitespace": false,
-    "prettier.singleQuote": true,
-    "prettier.configPath": ".prettierrc"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
