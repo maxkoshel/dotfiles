@@ -213,6 +213,7 @@ cask "libreoffice"
 
 cask "telegram-desktop"
 cask "whatsapp"
+cask "wechat"
 cask "skype"
 cask "slack"
 cask "zoomus"
