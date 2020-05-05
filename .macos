@@ -87,6 +87,9 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # Show battery percentage
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
+# Remove annoying notification about 'Start using iCloud'
+defaults delete com.apple.systempreferences AttentionPrefBundleIDs
+
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
