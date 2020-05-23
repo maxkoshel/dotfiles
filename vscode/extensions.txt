@@ -10,7 +10,6 @@ HookyQR.beautify
 huizhou.githd
 ipedrazas.kubernetes-snippets
 k--kato.intellij-idea-keybindings
-kiteco.kite
 kumar-harsh.graphql-for-vscode
 mauve.terraform
 mikestead.dotenv
