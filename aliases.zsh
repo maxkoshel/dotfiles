@@ -93,6 +93,8 @@ alias nit='npm install && npm test'
 
 # kubernetes
 alias k='kubectl'
+alias kg='kubectl get'
+alias kd='kubectl describe'
 # get all namespaced k8s resources
 alias kga='kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found'
 
