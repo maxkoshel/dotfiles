@@ -203,6 +203,9 @@ brew "nmap"
 # Netcat on steroids
 brew "socat"
 
+# Terminal multiplexer
+brew "tmux"
+
 cask "alfred"
 cask "transmission"
 cask "vlc"
