@@ -228,6 +228,8 @@ cask "virtualbox"
 cask "vagrant"
 cask "kite"
 cask "google-cloud-sdk"
+cask "wireshark"
+
 
 ################
 # Kubernetes
