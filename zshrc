@@ -158,3 +158,4 @@ export YVM_DIR=/Users/$(whoami)/.yvm
 [ -r $YVM_DIR/yvm.sh ] && source $YVM_DIR/yvm.sh
 if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
 export PATH="/usr/local/opt/helm@3/bin:$PATH"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
