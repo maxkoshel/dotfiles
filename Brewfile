@@ -1,3 +1,8 @@
+# Upgrade, Update, Check Homebrew
+update
+upgrade
+doctor
+
 tap "homebrew/bundle"
 tap "homebrew/core"
 
@@ -229,6 +234,7 @@ cask "vagrant"
 cask "kite"
 cask "google-cloud-sdk"
 cask "wireshark"
+casl "prisma-studio"
 
 
 ################
