@@ -238,7 +238,7 @@ cask "wireshark"
 # Production-Grade Container Orchestration
 # https://kubernetes.io
 brew "kubectl"
-brew "kubernetes-helm"
+brew "helm"
 
 # Local Kubernetes development
 brew "skaffold"
