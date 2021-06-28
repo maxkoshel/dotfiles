@@ -1,68 +1,76 @@
 {
-    // Editor
-	"editor.fontSize": 16,
-    "editor.rulers": [80, 120],
-    "editor.minimap.enabled": false,
-    // Files
-    "files.trimTrailingWhitespace": true,
-	"files.insertFinalNewline": true,
-	"files.hotExit": "off",
-    "files.useExperimentalFileWatcher": true,
-    // Search
-    "search.useIgnoreFiles": true,
-	"search.exclude": {
-        "**/.history": true,
-        "**/bower_components": true,
-        "**/dist": true,
-        "**/node_modules": true,
-        "**/out": true
-    },
-	// TypeScript
-	"typescript.disableAutomaticTypeAcquisition": true,
-	"typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-	// JavaScript
-    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-    // Terminal
-    "terminal.external.osxExec": "iTerm.app",
-    // Git
-	"git.enabled": true,
-	"window.zoomLevel": 0,
-    "diffEditor.renderSideBySide": true,
-    "workbench.editor.showTabs": false,
-    "cSpell.enabled": false,
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "kite.showWelcomeNotificationOnStartup": false,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "search.useGlobalIgnoreFiles": true,
-    "search.quickOpen.includeHistory": false,
-    "vsicons.dontShowNewVersionMessage": true,
-    "editor.acceptSuggestionOnCommitCharacter": false,
-    "files.exclude": {
-        "**/*.chunk.*": true,
-        "**/*.lock": true,
-        "**/*.log": true,
-        "**/*.map": true,
-        "**/public": true
-    },
-    "workbench.settings.enableNaturalLanguageSearch": false,
-    "explorer.confirmDelete": false,
-    "gitlens.advanced.messages": {
-        "suppressFileNotUnderSourceControlWarning": true
-    },
-    "local-history.maxDisplay": 50,
-    "local-history.exclude": [
-        "**/.history/**",
-        "**/.vscode**",
-        "**/node_modules/**",
-        "**/typings/**",
-        "**/out/**",
-        "**/dist/**",
-        "**/.DS_Store/**",
-        "**/.git/**"
-    ],
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+  // Editor
+  "editor.fontSize": 16,
+  "editor.rulers": [80, 120],
+  "editor.minimap.enabled": false,
+
+  // Files
+  "files.associations": {
+    "*.jsx": "javascriptreact"
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.hotExit": "off",
+  "files.useExperimentalFileWatcher": true,
+
+  // Search
+  "search.useIgnoreFiles": false,
+  "search.exclude": {
+    "**/.history": true,
+    "**/bower_components": true,
+    "**/dist": true,
+    "**/node_modules": true,
+    "**/out": true
+  },
+  // TypeScript
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+  // JavaScript
+  "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+  // Terminal
+  "terminal.external.osxExec": "iTerm.app",
+  // Git
+  "git.enabled": true,
+  "window.zoomLevel": 0,
+  "diffEditor.renderSideBySide": true,
+  "workbench.editor.showTabs": false,
+  "cSpell.enabled": false,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "kite.showWelcomeNotificationOnStartup": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "search.useGlobalIgnoreFiles": true,
+  "search.quickOpen.includeHistory": false,
+  "vsicons.dontShowNewVersionMessage": true,
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "files.exclude": {
+    "**/*.chunk.*": true,
+    "**/*.lock": true,
+    "**/*.log": true,
+    "**/*.map": true,
+    "**/public": true
+  },
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "explorer.confirmDelete": false,
+  "gitlens.advanced.messages": {
+    "suppressFileNotUnderSourceControlWarning": true
+  },
+  "local-history.maxDisplay": 50,
+  "local-history.exclude": [
+    "**/.history/**",
+    "**/.vscode**",
+    "**/node_modules/**",
+    "**/typings/**",
+    "**/out/**",
+    "**/dist/**",
+    "**/.DS_Store/**",
+    "**/.git/**"
+  ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "tabnine.experimentalAutoImports": true,
+  "editor.formatOnSave": true,
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }
