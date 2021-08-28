@@ -700,6 +700,13 @@ defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
 defaults write org.m0k.transmission RandomPort -bool true
 
 ###############################################################################
+# Adobe                                                                       #
+###############################################################################
+
+# Turn off Adobe Creative Cloud
+launchctl unload -w /Library/LaunchAgents/com.adobe.AdobeCreativeCloud.plist
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
