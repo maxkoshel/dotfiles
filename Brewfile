@@ -211,6 +211,9 @@ brew "socat"
 # Terminal multiplexer
 brew "tmux"
 
+# Representing structural information as diagrams of abstract graphs and networks
+brew "graphviz"
+
 cask "alfred"
 cask "transmission"
 cask "vlc"
