@@ -17,6 +17,7 @@
   "search.useIgnoreFiles": false,
   "search.exclude": {
     "**/.history": true,
+    "**/.next": true,
     "**/bower_components": true,
     "**/dist": true,
     "**/node_modules": true,
@@ -31,7 +32,6 @@
   "terminal.external.osxExec": "iTerm.app",
   // Git
   "git.enabled": true,
-  "window.zoomLevel": 0,
   "diffEditor.renderSideBySide": true,
   "workbench.editor.showTabs": false,
   "cSpell.enabled": false,
@@ -44,11 +44,11 @@
   "vsicons.dontShowNewVersionMessage": true,
   "editor.acceptSuggestionOnCommitCharacter": false,
   "files.exclude": {
+    "**/.history": true,
     "**/*.chunk.*": true,
     "**/*.lock": true,
     "**/*.log": true,
-    "**/*.map": true,
-    "**/public": true
+    "**/*.map": true
   },
   "workbench.settings.enableNaturalLanguageSearch": false,
   "explorer.confirmDelete": false,
@@ -71,6 +71,13 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "tabnine.experimentalAutoImports": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "debug.javascript.autoAttachFilter": "disabled",
+  "cSpell.userWords": ["idempotency"],
+  "window.zoomLevel": 1,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.tabSize": 2,
+  "beautify.ignore": "",
   "editor.formatOnSave": true,
-  "typescript.updateImportsOnFileMove.enabled": "always"
+  "editor.inlineSuggest.enabled": true
 }
