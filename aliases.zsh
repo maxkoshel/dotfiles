@@ -16,6 +16,9 @@ alias grh='git reset --hard'
 
 alias gb='git branch'
 
+# Stash
+alias gst='git stash --include-untracked'
+
 # Reset current branch to its origin state
 alias grho='git reset --hard origin/`gbc`'
 
