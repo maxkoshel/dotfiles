@@ -100,6 +100,14 @@ alias kg='kubectl get'
 alias kd='kubectl describe'
 # get all namespaced k8s resources
 alias kga='kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found'
+# get ip address of a pod
+kpip() {
+  kubectl --namespace $1 get pod $2 -o jsonpath="{.status.podIP}"
+}
+# get ip address of a service
+ksip() {
+  kubectl --namespace $1 get service $2 -o jsonpath="{.spec.clusterIP}"
+}
 
 # minikube
 alias mk='minikube start --extra-config=apiserver.authorization-mode=RBAC --extra-config=apiserver.enable-swagger-ui=true --feature-gates="TTLAfterFinished=true"'
