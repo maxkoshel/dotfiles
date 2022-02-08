@@ -237,8 +237,8 @@ cask "vagrant"
 cask "kite"
 cask "google-cloud-sdk"
 cask "wireshark"
-casl "prisma-studio"
-
+cask "prisma-studio"
+cask "dbeaver-community"
 
 ################
 # Kubernetes
