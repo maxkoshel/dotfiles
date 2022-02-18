@@ -4,6 +4,11 @@
     "key": "alt+cmd+a",
     "command": "git.stageSelectedRanges"
   },
+  {
+    "key": "[Enter]",
+    "command": "editor.action.nextMatchFindAction",
+    "when": "editorFocus && findInputFocussed"
+  },
   // IntelliJ
   {
     "command": "editor.action.clipboardCopyAction",
