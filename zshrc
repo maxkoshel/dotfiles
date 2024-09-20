@@ -117,8 +117,8 @@ export LESS=iFRXx4
 # see https://github.com/sharkdp/bat#output-style
 export BAT_STYLE="changes,header,numbers"
 
-[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 export NVM_DIR="${HOME}/.nvm"
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 export NVM_LAZY_LOAD=true
 # export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm

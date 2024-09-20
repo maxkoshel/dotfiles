@@ -13,9 +13,10 @@ export EDITOR=code
 export PAGER=bat
 export LESS=-asrRix4
 
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 # bash completion
 if [ -n "`which brew`" ]; then
-    source $(brew --prefix nvm)/nvm.sh
     [ -f $(brew --prefix)/etc/bash_completion ] && source $(brew --prefix)/etc/bash_completion
 else
     source ~/configs/git-prompt.sh
@@ -28,6 +29,8 @@ done
 unset file
 
 [ -r ~/.extra ] && [ -f ~/.extra ] && source ~/.extra
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # do not expand paths like '~/' on tab
 _expand()
