@@ -159,3 +159,9 @@ export YVM_DIR=/Users/$(whoami)/.yvm
 if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
 export PATH="/usr/local/opt/helm@3/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
+fi
