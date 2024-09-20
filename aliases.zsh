@@ -111,3 +111,6 @@ ksip() {
 
 # minikube
 alias mk='minikube start --extra-config=apiserver.authorization-mode=RBAC --extra-config=apiserver.enable-swagger-ui=true --feature-gates="TTLAfterFinished=true"'
+
+# Disable corrections
+alias strapi='nocorrect strapi'
