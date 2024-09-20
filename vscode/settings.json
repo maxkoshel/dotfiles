@@ -1,6 +1,4 @@
 {
-  // Editor
-  "editor.fontSize": 16,
   "editor.rulers": [80, 120],
   "editor.minimap.enabled": false,
 
@@ -18,10 +16,12 @@
   "search.exclude": {
     "**/.history": true,
     "**/.next": true,
+    "**/.out": true,
     "**/bower_components": true,
     "**/dist": true,
+    "**/nexus-typegen.ts": true,
     "**/node_modules": true,
-    "**/out": true
+    "**/schema.graphql": true
   },
   // TypeScript
   "typescript.disableAutomaticTypeAcquisition": true,
@@ -32,8 +32,7 @@
   "terminal.external.osxExec": "iTerm.app",
   // Git
   "git.enabled": true,
-  "diffEditor.renderSideBySide": true,
-  "workbench.editor.showTabs": false,
+  "workbench.editor.showTabs": "single",
   "cSpell.enabled": false,
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -74,10 +73,61 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "debug.javascript.autoAttachFilter": "disabled",
   "cSpell.userWords": ["idempotency"],
-  "window.zoomLevel": 1,
-  "diffEditor.ignoreTrimWhitespace": false,
   "editor.tabSize": 2,
   "beautify.ignore": "",
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "yaml": true,
+    "javascript": false
+  },
+  "editor.unicodeHighlight.allowedCharacters": {
+    "а": true
+  },
+  "window.zoomLevel": 1,
+  "diffEditor.maxComputationTime": 0,
+  "keyboard.dispatch": "keyCode",
+  "[python]": {
+    "editor.formatOnType": true
+  },
   "editor.formatOnSave": true,
-  "editor.inlineSuggest.enabled": true
+  "errorLens.excludeBySource": ["ts(2345)"],
+  "workbench.editor.empty.hint": "hidden",
+  "diffEditor.experimental.showMoves": true,
+  "diffEditor.useInlineViewWhenSpaceIsLimited": false,
+  "editor.screenReaderAnnounceInlineSuggestion": false,
+  "jest.runMode": "on-demand",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "prisma.showPrismaDataPlatformNotification": false,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "accessibility.signals.terminalCommandSucceeded": {
+    "sound": "off",
+    "announcement": "off"
+  },
+  "accessibility.signals.terminalQuickFix": {
+    "sound": "off",
+    "announcement": "off"
+  },
+  "accessibility.signals.voiceRecordingStarted": {
+    "sound": "off"
+  },
+  "accessibility.signals.voiceRecordingStopped": {
+    "sound": "off"
+  },
+  "accessibility.signals.terminalCommandFailed": {
+    "announcement": "off",
+    "sound": "off"
+  },
+  "accessibility.signals.terminalBell": {
+    "announcement": "off",
+    "sound": "off"
+  },
+  "accessibility.signals.taskFailed": {
+    "announcement": "off",
+    "sound": "off"
+  },
+  "accessibility.signalOptions.volume": 0
 }
