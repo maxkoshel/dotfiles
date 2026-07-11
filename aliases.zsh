@@ -1,12 +1,10 @@
 alias gm='git merge --no-ff'
 alias gmf='git merge --ff-only'
 
-alias go='git checkout'
 alias gob='git checkout -b'
-alias god='git checkout dev'
+alias god='git checkout develop'
 
 alias gl='git lol'
-alias gh='git hist'
 
 alias gf='git fetch'
 alias gfu='git fetch upstream'
@@ -39,7 +37,7 @@ alias gpcf='git push -u origin +`gbc`'
 alias gcp='git cherry-pick'
 alias gcpa='git cherry-pick --abort'
 
-# Go to dev and update it (git update dev)
+# Go to develop and update it (git update develop)
 alias gud='god && gpf'
 
 # Status, add, commit
@@ -58,10 +56,10 @@ alias gcf='git checkout --'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
 alias grs='git rebase --skip'
-alias grd='git rebase dev'
+alias grd='git rebase develop'
 alias gri='git rebase -i'
-alias grid='git rebase -i dev'
-alias grim='git rebase -i master'
+alias grid='git rebase -i develop'
+alias grim='git rebase -i main'
 
 alias gsh='git show'
 alias ghs='git hash'
@@ -69,7 +67,7 @@ alias gbc='git rev-parse --abbrev-ref HEAD' # git-branch-current
 alias gsd='git show -s --format="%ci"' # git-show-date
 
 # Execute on feature branch.
-# Updates dev (or master) and then rebases current branch
+# Updates develop (or main) and then rebases current branch
 alias gudc='gcd && gpf && gco - && grbd'
 alias gumc='gcm && gpf && gco - && grbm'
 
@@ -114,3 +112,4 @@ alias mk='minikube start --extra-config=apiserver.authorization-mode=RBAC --extr
 
 # Disable corrections
 alias strapi='nocorrect strapi'
+
