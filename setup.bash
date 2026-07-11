@@ -14,7 +14,7 @@ if [[ $OSTYPE =~ darwin ]]; then
     echo "macOS detected"
     if [ -z "`which brew`" ]; then
         echo "Installing Homebrew..."
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     else
         echo "Homebrew is already installed"
     fi
@@ -22,25 +22,16 @@ if [[ $OSTYPE =~ darwin ]]; then
     echo "Updating brew bundles..."
     brew bundle --file="${dotfiles_dir}/Brewfile"
 
-    # extra
-    sudo easy_install pip
-    sudo pip install howdoi --upgrade
-
-    if [ -z "`which mas`" ]; then
-        cat "${dotfiles_dir}/Masfile"
-        read -p "Install these apps from AppStore? " -n 1 -r
-        echo
-        if [[ ${REPLY} =~ ^[Yy]$ ]]; then
-          brew bundle --file="${dotfiles_dir}/Masfile"
-        fi
+    # Install Python tools
+    if command -v pip3 &> /dev/null; then
+        pip3 install --user howdoi --upgrade
     else
-        echo "Updating brew mas bundle..."
-        brew bundle --file="${dotfiles_dir}/Masfile"
+        echo "pip3 not found, skipping Python tools installation"
     fi
 fi
 
 echo "Symlinking configs..."
-for file in profile inputrc zshrc; do
+for file in profile inputrc; do
     ln -sf "${dotfiles_dir}/${file}" "${HOME}/.${file}"
 done
 unset file
@@ -69,8 +60,19 @@ cat >>${extra_file} <<EOL
 export GITHUB_HOST="${GH_HOST}"
 EOL
 
-source <(kubectl completion zsh)
+# Install zinit if not installed
+echo "Setting up zinit..."
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [ ! -d "$ZINIT_HOME" ]; then
+    mkdir -p "$(dirname $ZINIT_HOME)"
+    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
 
+# Create symbolic links for zsh configuration
+echo "Symlinking zsh configs..."
+ln -sf "${dotfiles_dir}/zshrc" "${HOME}/.zshrc"
+
+# Change shell to zsh
 chsh -s /bin/zsh
 
-echo "Done. Reload your shell"
+echo "Done. Please restart your terminal for changes to take effect."
