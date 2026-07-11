@@ -45,6 +45,9 @@
 
     fixup = !sh -c 'REV=$(git rev-parse $1) && git commit --fixup $@ && git rebase -i --autosquash $REV^' -
 
+    # Print last N commit hashes
+    revs = "!sh -c 'git rev-list --max-count=${1:-10} --reverse HEAD | tr \"\\n\" \" \"' _"
+
 [color]
     ui = auto
     interactive = auto
