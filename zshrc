@@ -1,11 +1,31 @@
-echo "==> Loading .zshrc"
+# Enable zsh profiling (run `zprof` in a shell to view results)
+zmodload zsh/zprof
+
+# Fast path for automation shells (opt-in via env)
+if [[ "$COPILOT_FAST_SHELL" == "1" ]] || [[ -n "$CLAUDE_CODE" ]]; then
+  export NVM_DIR="${HOME}/.nvm"
+  () {
+    local _ver _bin
+    _ver=$(cat "$NVM_DIR/alias/default" 2>/dev/null) || return
+    while [[ -f "$NVM_DIR/alias/$_ver" ]]; do _ver=$(cat "$NVM_DIR/alias/$_ver"); done
+    _bin=$(ls -d "$NVM_DIR/versions/node/v${_ver}"*/bin 2>/dev/null | sort -V | tail -1)
+    [[ -d "$_bin" ]] && export PATH="$_bin:$PATH"
+  }
+  return
+fi
 
 ZSH_CACHE=~/.zsh_cache
 mkdir -p ${ZSH_CACHE}
 chmod 700 ${ZSH_CACHE}
 
-# see man zshbuiltins
-autoload -U compinit && compinit -d "$ZSH_CACHE/zcompdump"
+# Optimize completion loading
+autoload -Uz compinit
+
+if [[ -n ${ZSH_CACHE}/zcompdump(#qN.mh+24) ]]; then
+  compinit -d "${ZSH_CACHE}/zcompdump"
+else
+  compinit -C -d "${ZSH_CACHE}/zcompdump"
+fi
 
 # see man zshoptions
 
@@ -101,8 +121,13 @@ extra_path="${HOME}/.extra"
 #  gpg-connect-agent /bye
 #fi
 
-export NODE_PATH=`which node`
-export PATH="${HOME}/bin:./node_modules/.bin:$PATH"
+# Optimize PATH
+typeset -U path
+path=(
+  ${HOME}/bin
+  ./node_modules/.bin
+  $path
+)
 export ZSH_HIGHLIGHT_MAXLENGTH=300
 
 export EDITOR="code --wait"
@@ -117,16 +142,56 @@ export LESS=iFRXx4
 # see https://github.com/sharkdp/bat#output-style
 export BAT_STYLE="changes,header,numbers"
 
+# NVM configuration with lazy loading
 export NVM_DIR="${HOME}/.nvm"
-[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 export NVM_LAZY_LOAD=true
-# export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=('npm' 'node' 'nvm' 'yarn' 'npx')
+# Skip nvm's auto-use-default-version on source (~2s of fs walking).
+# The bootstrap below already puts the default node bin on PATH.
+export NVM_NO_USE=true
+# NOTE: NVM_AUTO_USE=true forces nvm.sh to load eagerly on every shell start
+# (it has to read .nvmrc), which defeats lazy loading. Run `nvm use` manually
+# in projects that need a specific node version.
 
-export ANTIGEN_COMPDUMP="${ZSH_CACHE}/antigen_compdump"
+# Add nvm default node path to PATH immediately (no nvm runtime needed)
+() {
+  local _ver _bin
+  _ver=$(cat "$NVM_DIR/alias/default" 2>/dev/null) || return
+  while [[ -f "$NVM_DIR/alias/$_ver" ]]; do _ver=$(cat "$NVM_DIR/alias/$_ver"); done
+  _bin=$(ls -d "$NVM_DIR/versions/node/v${_ver}"*/bin 2>/dev/null | sort -V | tail -1)
+  [[ -d "$_bin" ]] && path=("$_bin" $path)
+}
 
-source $(brew --prefix)/share/antigen/antigen.zsh
-antigen init "${dotfiles_dir}/antigenrc"
+# Initialize zinit
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+source "${ZINIT_HOME}/zinit.zsh"
+
+# Load core plugins with turbo mode (parallel loading)
+zinit wait lucid for \
+  atinit"zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+  atload"_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions \
+  blockf atpull'zinit creinstall -q .' \
+    zsh-users/zsh-completions
+
+# Load oh-my-zsh plugins and libs
+zinit snippet OMZL::git.zsh
+zinit snippet OMZP::git
+zinit snippet OMZP::colored-man-pages
+
+# Pure theme
+zinit ice pick"async.zsh" src"pure.zsh"
+zinit light sindresorhus/pure
+
+# Essential tools with turbo mode
+zinit wait lucid for \
+  MichaelAquilina/zsh-you-should-use \
+  changyuheng/zsh-interactive-cd
+
+# NVM plugin with lazy loading
+zinit ice wait lucid
+zinit light lukechilds/zsh-nvm
 
 HYPHEN_INSENSITIVE="true"
 
@@ -135,33 +200,92 @@ export LC_ALL=en_US.UTF-8
 
 source "${dotfiles_dir}/aliases.zsh"
 
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-export FZF_DEFAULT_OPTS='--height 75% --multi'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :200 {}'"
-export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
+# Lazy load fzf
+fzf_load() {
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+  export FZF_DEFAULT_OPTS='--height 75% --multi'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :200 {}'"
+  export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
 
-_fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . "$1"
+  _fzf_compgen_path() {
+    fd --hidden --follow --exclude ".git" . "$1"
+  }
+
+  _fzf_compgen_dir() {
+    fd --type d --hidden --follow --exclude ".git" . "$1"
+  }
+
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 }
 
-_fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
+_fzf_lazy_init() {
+  # Remove lazy wrappers first to avoid recursive calls.
+  unfunction fzf __fsel _fzf_lazy_init 2>/dev/null
+  fzf_load
 }
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+fzf() {
+  _fzf_lazy_init
+  fzf "$@"
+}
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+__fsel() {
+  _fzf_lazy_init
+  __fsel "$@"
+}
 
+# Defer iTerm2 + YVM until after the first prompt
+_dotfiles_defer_late_init() {
+  test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+  export YVM_DIR="${HOME}/.yvm"
+  [ -r "$YVM_DIR/yvm.sh" ] && source "$YVM_DIR/yvm.sh"
+  add-zsh-hook -d precmd _dotfiles_defer_late_init
+  unfunction _dotfiles_defer_late_init
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd _dotfiles_defer_late_init
 
-export YVM_DIR=/Users/$(whoami)/.yvm
-[ -r $YVM_DIR/yvm.sh ] && source $YVM_DIR/yvm.sh
-if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
-export PATH="/usr/local/opt/helm@3/bin:$PATH"
+# Lazy load kubectl completion
+if [ -f /usr/local/bin/kubectl ]; then
+  kubectl() {
+    unfunction "$0"
+    source <(kubectl completion zsh)
+    $0 "$@"
+  }
+fi
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
-fi
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin/env:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/Library/Python/3.9/bin:$PATH"
+
+# Lazy load pyenv
+pyenv() {
+  unset -f pyenv
+  export PATH="${PYENV_ROOT}/shims:${PATH}"
+  eval "$(command pyenv init -)"
+  eval "$(command pyenv init --path)"
+  pyenv "$@"
+}
+
+# Show profiling output automatically when ZSH_PROFILE_RC=1 is set
+[[ -n "$ZSH_PROFILE_RC" ]] && zprof
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+# pnpm
+export PNPM_HOME="/Users/maxkoshel/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Initialize zoxide for smarter cd (must be at the end)
+eval "$(zoxide init zsh)"
+
+# Alias for zoxide interactive mode (zi is taken by zinit)
+alias zi='__zoxide_zi'
