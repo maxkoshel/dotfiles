@@ -1,7 +1,6 @@
 echo "==> Loading .profile"
 
-export NODE_PATH=`which node`
-export PATH="~/bin:/usr/local/bin:~/node_modules/.bin:$NODE_PATH:$PATH"
+export PATH="~/bin:/usr/local/bin:~/node_modules/.bin:$PATH"
 
 export NVM_DIR=~/.nvm
 
@@ -39,3 +38,6 @@ _expand()
 }
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+. "$HOME/.local/bin/env"
+. "$HOME/.cargo/env"
