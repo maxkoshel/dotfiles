@@ -25,7 +25,7 @@ if [[ $OSTYPE =~ darwin ]]; then
     brew doctor || true
 
     echo "Updating brew bundles..."
-    brew bundle --file="${dotfiles_dir}/Brewfile"
+    brew bundle --file="${dotfiles_dir}/Brewfile" || echo "Warning: some packages from Brewfile failed to install, continuing..."
 
     optional_brewfile="${dotfiles_dir}/Brewfile.optional"
     if [ -f "${optional_brewfile}" ]; then
@@ -55,7 +55,7 @@ if [[ $OSTYPE =~ darwin ]]; then
                     done
                 fi
                 echo "Installing selected optional applications..."
-                brew bundle --file="${optional_tmp}"
+                brew bundle --file="${optional_tmp}" || echo "Warning: some optional packages failed to install, continuing..."
                 rm -f "${optional_tmp}"
             fi
         fi
