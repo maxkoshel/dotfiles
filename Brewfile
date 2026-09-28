@@ -9,48 +9,23 @@ tap "homebrew/core"
 tap "beeftornado/rmtree"
 tap "saulpw/vd"
 tap "caskroom/fonts"
-tap "prisma/prisma"
 
 # Clone of cat(1) with syntax highlighting and Git integration
 # https://github.com/sharkdp/bat
 brew "bat"
 
-# Rainbows and unicorns in your console!
-# https://github.com/busyloop/lolcat
-brew "lolcat"
-
 # List ASCII idiomatic names and octal/decimal code-point forms
 # http://www.catb.org/~esr/ascii/
 brew "ascii"
-
-# Convert text between DOS, UNIX, and Mac formats
-# https://waterlan.home.xs4all.nl/dos2unix.html
-brew "dos2unix"
-
-# View and edit files in hexadecimal or ASCII
-# http://rigaux.org/hexedit.html
-brew "hexedit"
 
 # UNIX shell (command interpreter)
 # https://www.zsh.org/
 brew "zsh"
 
-# Plugin manager for zsh, inspired by oh-my-zsh and vundle
-# https://antigen.sharats.me
-brew "antigen"
-
-# GNU Pretty Good Privacy (PGP) package
-# https://gnupg.org/
-brew "gnupg"
-
-# GPG key agent
-# https://www.gnupg.org/
-# brew "gpg-agent"
-
-# CLI tool for quick access to files and directories
-# https://github.com/clvv/fasd
-brew "fasd"
-
+# Dependencies for zinit and zsh plugins
+brew "coreutils"  # Required for some zsh plugins
+brew "grep"       # Required for syntax highlighting
+brew "sed"        # Required for some zsh scripts
 # Command-line fuzzy finder written in Go
 # https://github.com/junegunn/fzf
 brew "fzf"
@@ -59,9 +34,9 @@ brew "fzf"
 # https://github.com/sharkdp/fd
 brew "fd"
 
-# Code-search similar to ack
-# https://github.com/ggreer/the_silver_searcher
-brew "the_silver_searcher"
+# A smarter cd command that learns your habits
+# https://github.com/ajeetdsouza/zoxide
+brew "zoxide"
 
 # Display directories as trees (with optional color/HTML output)
 # http://mama.indstate.edu/users/ice/tree/
@@ -95,10 +70,6 @@ brew "jq"
 # https://github.com/tomnomnom/gron
 brew "gron"
 
-# Tool to perform numerical, textual & statistical operations
-# https://www.gnu.org/software/datamash
-brew "datamash"
-
 # Terminal utility for exploring and arranging tabular data
 # https://visidata.org/
 brew "saulpw/vd/visidata"
@@ -126,10 +97,6 @@ brew "unzip"
 # 7-Zip (high compression file archiver) implementation
 # https://p7zip.sourceforge.io/
 brew "p7zip"
-
-# Version control system designed to be a better CVS
-# https://subversion.apache.org/
-# brew "subversion"
 
 # Distributed revision control system
 # https://git-scm.com
@@ -167,10 +134,6 @@ brew "wdiff"
 # https://github.com/so-fancy/diff-so-fancy
 brew "diff-so-fancy"
 
-# Instant coding answers via the command-line
-# https://github.com/gleitz/howdoi
-brew "howdoi"
-
 # Open source programming language to build simple/reliable/efficient software
 # https://golang.org
 brew "go"
@@ -189,56 +152,16 @@ brew "ansible"
 # Amazon Web Services Cli
 brew "awscli"
 
-# Ruby Gem
-# Usage: brew gem install <package>
-brew "brew-gem"
-
 # Package manager for Node
 brew "yarn"
-
-# Database tools for modern application development
-brew "prisma"
 
 # PostgreSQL Database
 brew "postgresql"
 
-# Security Scanner, Port Scanner, & Network Exploration Tool
-brew "nmap"
-
-# Netcat on steroids
-brew "socat"
-
 # Terminal multiplexer
 brew "tmux"
 
-# Representing structural information as diagrams of abstract graphs and networks
-brew "graphviz"
-
-cask "alfred"
-cask "transmission"
-cask "vlc"
-cask "1password"
-cask "brave-browser"
-cask "deepl"
-cask "libreoffice"
-
-cask "telegram-desktop"
-cask "whatsapp"
-cask "wechat"
-cask "skype"
-cask "slack"
-cask "zoomus"
-
-cask "iterm2"
-cask "postman"
-cask "visual-studio-code"
-cask "virtualbox"
-cask "vagrant"
-cask "kite"
-cask "google-cloud-sdk"
-cask "wireshark"
-cask "prisma-studio"
-cask "dbeaver-community"
+cask "cmux"
 
 ################
 # Kubernetes
@@ -251,14 +174,3 @@ brew "helm"
 
 # Local Kubernetes development
 brew "skaffold"
-
-################
-# Optional stuff
-################
-
-cask "ilya-birman-typography-layout"
-
-# cask "spectacle"
-# cask "dynalist"
-# cask "xmind-zen"
-# cask "veracrypt"

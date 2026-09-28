@@ -1,0 +1,25 @@
+cask "alfred"
+cask "transmission"
+cask "vlc"
+cask "1password"
+cask "brave-browser"
+cask "deepl"
+cask "libreoffice"
+
+cask "telegram-desktop"
+cask "whatsapp"
+cask "slack"
+cask "zoomus"
+
+cask "postman"
+cask "visual-studio-code"
+cask "google-cloud-sdk"
+cask "wireshark"
+cask "dbeaver-community"
+
+################
+# Optional stuff
+################
+# Installed selectively via setup.bash (not part of the base Brewfile).
+
+cask "ilya-birman-typography-layout"
