@@ -1,8 +1,3 @@
-# Upgrade, Update, Check Homebrew
-update
-upgrade
-doctor
-
 tap "homebrew/bundle"
 tap "homebrew/core"
 

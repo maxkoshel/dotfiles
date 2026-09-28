@@ -19,6 +19,11 @@ if [[ $OSTYPE =~ darwin ]]; then
         echo "Homebrew is already installed"
     fi
 
+    echo "Updating Homebrew..."
+    brew update
+    brew upgrade
+    brew doctor || true
+
     echo "Updating brew bundles..."
     brew bundle --file="${dotfiles_dir}/Brewfile"
 
