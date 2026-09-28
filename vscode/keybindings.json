@@ -11,22 +11,9 @@
   },
   // IntelliJ
   {
-    "command": "editor.action.clipboardCopyAction",
-    "key": "cmd+c"
-  },
-  {
     "command": "editor.action.clipboardCutAction",
     "key": "cmd+x",
     "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "command": "editor.action.clipboardCutAction",
-    "key": "shift+[Delete]",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "command": "editor.action.clipboardPasteAction",
-    "key": "cmd+v"
   },
   {
     "command": "redo",
@@ -481,14 +468,6 @@
     "when": "editorHasReferenceProvider"
   },
   {
-    "command": "workbench.action.navigateForward",
-    "key": "cmd+[BracketRight]"
-  },
-  {
-    "command": "workbench.action.navigateForward",
-    "key": "cmd+alt+[ArrowRight]"
-  },
-  {
     "command": "workbench.action.files.newUntitledFile",
     "key": "cmd+n"
   },
@@ -662,11 +641,6 @@
     "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
   },
   {
-    "command": "editor.action.startFindReplaceAction",
-    "key": "cmd+r",
-    "when": "editorFocus || editorIsOpen"
-  },
-  {
     "command": "workbench.action.replaceInFiles",
     "key": "shift+cmd+r"
   },
@@ -679,10 +653,6 @@
     "command": "workbench.action.debug.continue",
     "key": "f9",
     "when": "inDebugMode"
-  },
-  {
-    "command": "workbench.action.tasks.reRunTask",
-    "key": "ctrl+r"
   },
   {
     "command": "editor.debug.action.runToCursor",
@@ -1042,10 +1012,6 @@
     "key": "shift+alt+f12"
   },
   {
-    "command": "-workbench.action.navigateForward",
-    "key": "ctrl+shift+-"
-  },
-  {
     "command": "-git.pushTo",
     "key": ""
   },
@@ -1264,5 +1230,39 @@
   {
     "command": "-editor.action.dirtydiff.previous",
     "key": "shift+alt+f3"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "-workbench.action.openRecent"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "-workbench.action.quickOpenNavigateNextInRecentFilesPicker",
+    "when": "inQuickOpen && inRecentFilesPicker"
+  },
+  {
+    "key": "alt+cmd+right",
+    "command": "-workbench.action.navigateForward",
+    "when": "canNavigateForward"
+  },
+  {
+    "key": "cmd+q",
+    "command": "-workbench.action.quit"
+  },
+  {
+    "key": "alt+cmd+right",
+    "command": "workbench.action.focusRightGroup"
+  },
+  {
+    "key": "cmd+k cmd+right",
+    "command": "-workbench.action.focusRightGroup"
+  },
+  {
+    "key": "alt+cmd+left",
+    "command": "workbench.action.focusLeftGroup"
+  },
+  {
+    "key": "cmd+k cmd+left",
+    "command": "-workbench.action.focusLeftGroup"
   }
 ]
