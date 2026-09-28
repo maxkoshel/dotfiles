@@ -115,3 +115,5 @@ alias strapi='nocorrect strapi'
 
 # Zoxide interactive mode (zi is taken by zinit)
 alias zi='__zoxide_zi'
+
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
