@@ -286,6 +286,3 @@ esac
 
 # Initialize zoxide for smarter cd (must be at the end)
 eval "$(zoxide init zsh)"
-
-# Alias for zoxide interactive mode (zi is taken by zinit)
-alias zi='__zoxide_zi'

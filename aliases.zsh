@@ -113,3 +113,5 @@ alias mk='minikube start --extra-config=apiserver.authorization-mode=RBAC --extr
 # Disable corrections
 alias strapi='nocorrect strapi'
 
+# Zoxide interactive mode (zi is taken by zinit)
+alias zi='__zoxide_zi'
