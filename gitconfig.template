@@ -75,15 +75,5 @@
 [merge]
     conflictstyle = diff3
 
-[filter "lfs"]
-    clean = git-lfs clean %f
-    smudge = git-lfs smudge --skip %f
-    process = git-lfs filter-process --skip
-    required = true
-[lfs "https://github.yandex-team.ru/"]
-  locksverify = false
-
 [stash]
     showPatch = true
-#[gpg]
-#    program = gpg2
