@@ -160,6 +160,8 @@ brew "mash"
 
 cask "cmux"
 
+cask "1password-cli"
+
 ################
 # Kubernetes
 ################
