@@ -1,0 +1,3 @@
+# Custom environment variables. Copy to custom_export and fill in the values.
+
+export OP_SERVICE_ACCOUNT_TOKEN=""

@@ -253,6 +253,9 @@ export PATH="$HOME/.local/bin/env:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/Library/Python/3.9/bin:$PATH"
 
+# Run start.bash if exists
+[ -f "${dotfiles_dir}/custom_export" ] && source "${dotfiles_dir}/custom_export"
+
 # Lazy load pyenv
 pyenv() {
   unset -f pyenv
