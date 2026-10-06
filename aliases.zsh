@@ -117,3 +117,6 @@ alias strapi='nocorrect strapi'
 alias zi='__zoxide_zi'
 
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+
+alias pip='pip3'
+alias python='python3'
