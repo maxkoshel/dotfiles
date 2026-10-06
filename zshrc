@@ -2,11 +2,15 @@
 zmodload zsh/zprof
 
 # Fast path for automation shells (opt-in via env)
-# Relies on ~/.local/bin/node (see install/nvm-default-link.bash) instead of
-# globbing $NVM_DIR on every shell start.
 if [[ "$COPILOT_FAST_SHELL" == "1" ]] || [[ -n "$CLAUDE_CODE" ]]; then
   export NVM_DIR="${HOME}/.nvm"
-  export PATH="${HOME}/.local/bin:$PATH"
+  () {
+    local _ver _bin
+    _ver=$(cat "$NVM_DIR/alias/default" 2>/dev/null) || return
+    while [[ -f "$NVM_DIR/alias/$_ver" ]]; do _ver=$(cat "$NVM_DIR/alias/$_ver"); done
+    _bin=$(ls -d "$NVM_DIR/versions/node/v${_ver}"*/bin 2>/dev/null | sort -V | tail -1)
+    [[ -d "$_bin" ]] && export PATH="$_bin:$PATH"
+  }
   return
 fi
 
@@ -143,15 +147,20 @@ export NVM_DIR="${HOME}/.nvm"
 export NVM_LAZY_LOAD=true
 export NVM_LAZY_LOAD_EXTRA_COMMANDS=('npm' 'node' 'nvm' 'yarn' 'npx')
 # Skip nvm's auto-use-default-version on source (~2s of fs walking).
-# ~/.local/bin/node (symlinked below) already covers the default node bin.
+# The bootstrap below already puts the default node bin on PATH.
 export NVM_NO_USE=true
 # NOTE: NVM_AUTO_USE=true forces nvm.sh to load eagerly on every shell start
 # (it has to read .nvmrc), which defeats lazy loading. Run `nvm use` manually
 # in projects that need a specific node version.
 
-# nvm default node is symlinked into ~/.local/bin by install/nvm-default-link.bash
-# (already on $PATH below), so no nvm runtime or $NVM_DIR globbing is needed here.
-# Run `nvm-relink-default` after `nvm install`/`nvm alias default` to refresh it.
+# Add nvm default node path to PATH immediately (no nvm runtime needed)
+() {
+  local _ver _bin
+  _ver=$(cat "$NVM_DIR/alias/default" 2>/dev/null) || return
+  while [[ -f "$NVM_DIR/alias/$_ver" ]]; do _ver=$(cat "$NVM_DIR/alias/$_ver"); done
+  _bin=$(ls -d "$NVM_DIR/versions/node/v${_ver}"*/bin 2>/dev/null | sort -V | tail -1)
+  [[ -d "$_bin" ]] && path=("$_bin" $path)
+}
 
 # Initialize zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -271,7 +280,7 @@ pyenv() {
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
 # pnpm
-export PNPM_HOME="$HOME/Library/pnpm"
+export PNPM_HOME="/Users/maxkoshel/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
