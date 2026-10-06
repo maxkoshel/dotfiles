@@ -52,6 +52,10 @@ if [ -f "${optional_brewfile}" ]; then
     fi
 fi
 
+brew tap domt4/autoupdate
+brew trust --command domt4/autoupdate/autoupdate
+brew autoupdate start 12h --upgrade --cleanup
+
 # Install Python tools
 if command -v pip3 &> /dev/null; then
     pip3 install --user howdoi --upgrade
