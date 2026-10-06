@@ -155,6 +155,8 @@ brew "postgresql"
 
 # Terminal multiplexer
 brew "tmux"
+# Quickly switching between tmux sessions
+brew "mash"
 
 cask "cmux"
 
