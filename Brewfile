@@ -158,6 +158,8 @@ brew "tmux"
 # Quickly switching between tmux sessions
 brew "mash"
 
+brew "nano"
+
 cask "cmux"
 
 cask "1password-cli"

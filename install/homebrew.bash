@@ -62,3 +62,6 @@ if command -v pip3 &> /dev/null; then
 else
     echo "pip3 not found, skipping Python tools installation"
 fi
+
+# Enable highlighting in nano
+echo 'include "'$(brew --cellar nano)'/*/share/nano/*.nanorc"' > ~/.nanorc
