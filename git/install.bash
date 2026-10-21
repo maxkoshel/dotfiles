@@ -23,6 +23,7 @@ if [[ "${CONFIGURE_GIT}" =~ ^[Yy]$ ]]; then
     git config --global user.email "${GIT_EMAIL}"
 
     git config --global core.excludesfile "${dotfiles_dir}/git/global.gitignore"
+    git config --global core.editor "${dotfiles_dir}/git/scripts/editor.sh"
 
     cat >>${extra_file} <<EOL
 export GITHUB_HOST="${GH_HOST}"

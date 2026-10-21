@@ -1,7 +1,6 @@
 [core]
     mergeoptions = --no-ff
     pager = diff-so-fancy | less -$LESS
-    editor = code --wait
     autocrlf = input
 [interactive]
     singleKey = true
