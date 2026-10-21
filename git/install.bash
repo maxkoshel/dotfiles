@@ -17,12 +17,12 @@ if [[ "${CONFIGURE_GIT}" =~ ^[Yy]$ ]]; then
     GIT_EMAIL=${GIT_EMAIL:-$CURRENT_GIT_EMAIL}
     GH_HOST=${GH_HOST:-$CURRENT_GH_HOST}
 
-    cp -f "${dotfiles_dir}/gitconfig.template" "${HOME}/.gitconfig"
+    cp -f "${dotfiles_dir}/git/gitconfig.template" "${HOME}/.gitconfig"
 
     git config --global user.name "${GIT_USER}"
     git config --global user.email "${GIT_EMAIL}"
 
-    git config --global core.excludesfile "${dotfiles_dir}/global.gitignore"
+    git config --global core.excludesfile "${dotfiles_dir}/git/global.gitignore"
 
     cat >>${extra_file} <<EOL
 export GITHUB_HOST="${GH_HOST}"

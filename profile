@@ -18,8 +18,8 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 if [ -n "`which brew`" ]; then
     [ -f $(brew --prefix)/etc/bash_completion ] && source $(brew --prefix)/etc/bash_completion
 else
-    source ~/configs/git-prompt.sh
-    source ~/configs/git-completion.bash
+    source ~/configs/git/git-prompt.sh
+    source ~/configs/git/git-completion.bash
 fi
 
 for file in ~/configs/.{bash_prompt,aliases,functions}; do

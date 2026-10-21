@@ -16,7 +16,7 @@ if [[ $OSTYPE =~ darwin ]]; then
 fi
 
 source "${install_dir}/symlinks.bash"
-source "${install_dir}/git.bash"
+source "${dotfiles_dir}/git/install.bash"
 source "${install_dir}/zsh.bash"
 
 echo "Done. Please restart your terminal for changes to take effect."
