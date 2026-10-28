@@ -21,6 +21,7 @@ brew "zsh"
 brew "coreutils"  # Required for some zsh plugins
 brew "grep"       # Required for syntax highlighting
 brew "sed"        # Required for some zsh scripts
+
 # Command-line fuzzy finder written in Go
 # https://github.com/junegunn/fzf
 brew "fzf"
@@ -156,20 +157,10 @@ brew "postgresql"
 # Terminal multiplexer
 brew "tmux"
 
+# Text editor
+# https://www.nano-editor.org/
 brew "nano"
 
+# Terminal multiplexer for managing multiple terminal sessions
+# https://cmux.com/
 cask "cmux"
-
-cask "1password-cli"
-
-################
-# Kubernetes
-################
-
-# Production-Grade Container Orchestration
-# https://kubernetes.io
-brew "kubectl"
-brew "helm"
-
-# Local Kubernetes development
-brew "skaffold"

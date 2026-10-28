@@ -1,25 +1,91 @@
-cask "alfred"
-cask "transmission"
-cask "vlc"
-cask "1password"
-cask "brave-browser"
-cask "deepl"
-cask "libreoffice"
-
-cask "telegram-desktop"
-cask "whatsapp"
-cask "slack"
-cask "zoomus"
-
-cask "postman"
-cask "visual-studio-code"
-cask "google-cloud-sdk"
-cask "wireshark"
-cask "dbeaver-community"
-
-################
-# Optional stuff
-################
 # Installed selectively via setup.bash (not part of the base Brewfile).
 
+#######
+# Other
+#######
+
+# Alfred productivity application
+# https://www.alfredapp.com/
+cask "alfred"
+
+# Password manager CLI
+# https://1password.com/cli/
+cask "1password-cli"
+
+# Secure introspectable tunnels to localhost
+# https://ngrok.com/
+cask "ngrok"
+
+# BitTorrent client
+# https://transmissionbt.com/
+cask "transmission"
+
+# Media player
+# https://www.videolan.org/vlc/
+cask "vlc"
+
+# Password manager
+# https://1password.com/
+cask "1password"
+
+# Web browser
+# https://brave.com/
+cask "brave-browser"
+
+# Translation tool
+# https://www.deepl.com/
+cask "deepl"
+
+# Office suite
+# https://www.libreoffice.org/
+cask "libreoffice"
+
+# API development platform
+# https://www.postman.com/
+cask "postman"
+
+# Code editor
+# https://code.visualstudio.com/
+cask "visual-studio-code"
+
+# Command-line tools for Google Cloud
+# https://cloud.google.com/sdk
+cask "google-cloud-sdk"
+
+# Network protocol analyzer
+# https://www.wireshark.org/
+cask "wireshark"
+
+# Database management tool
+# https://dbeaver.io/
+cask "dbeaver-community"
+
+# Typography layout tool
+# https://ilyabirman.net/projects/typography-layout/
 cask "ilya-birman-typography-layout"
+
+############
+# Kubernetes
+############
+
+# Production-Grade Container Orchestration
+# https://kubernetes.io
+brew "kubectl"
+# Helm package manager for Kubernetes
+brew "helm"
+
+# Local Kubernetes development
+brew "skaffold"
+
+######################
+# Communication tools
+######################
+
+# https://telegram.org/
+cask "telegram-desktop"
+# https://www.whatsapp.com/
+cask "whatsapp"
+# https://slack.com/
+cask "slack"
+# https://zoom.us/
+cask "zoomus"
