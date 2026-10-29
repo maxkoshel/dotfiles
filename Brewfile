@@ -161,6 +161,10 @@ brew "tmux"
 # https://www.nano-editor.org/
 brew "nano"
 
+# Fast search tool for the command line
+# https://github.com/BurntSushi/ripgrep
+brew "ripgrep"
+
 # Terminal multiplexer for managing multiple terminal sessions
 # https://cmux.com/
 cask "cmux"
