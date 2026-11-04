@@ -54,7 +54,8 @@ fi
 
 brew tap domt4/autoupdate
 brew trust --command domt4/autoupdate/autoupdate
-brew autoupdate start 12h --upgrade --cleanup
+# A stuck notifier blocks future launchd runs until the current run exits.
+brew autoupdate start 12h --upgrade --cleanup --no-notify
 
 # Install Python tools
 if command -v pip3 &> /dev/null; then
