@@ -165,6 +165,9 @@ brew "nano"
 # https://github.com/BurntSushi/ripgrep
 brew "ripgrep"
 
+# Pinentry for macOS (used for GPG passphrase entry)
+brew "pinentry-mac"
+
 # Terminal multiplexer for managing multiple terminal sessions
 # https://cmux.com/
 cask "cmux"
