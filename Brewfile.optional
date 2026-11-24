@@ -77,6 +77,14 @@ brew "helm"
 # Local Kubernetes development
 brew "skaffold"
 
+# Container runtimes with minimal setup
+brew "colima"
+
+# Docker Sandboxes CLI
+brew "docker/tap/sbx"
+
+# Nano
+
 ######################
 # Communication tools
 ######################
